@@ -1,0 +1,198 @@
+Offensive Speech Classification
+Contents
+1. Introduction	2
+2. How to do offensive speech classification	2
+3. TASK 1: Model Selection	3
+4. TASK 2 and TASK 3: Devising and training your own classifier and Data Size Effect	4
+5. Code	5
+6. Conclusion	8
+7. Refrence	9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Introduction 
+The work of classifying offensive speech involves locating and identifying text or speech that uses derogatory, abusive, or hurtful language towards certain people or groups based on attributes like ethnicity, gender, religion, sexual orientation, etc. Building a machine learning model with the capacity to automatically recognise and identify such language in a variety of contexts, such as social media platforms, online discussion forums, or customer service contacts, is the aim of this assignment.
+Classifying offensive speech can be difficult since it requires navigating ambiguous and context-dependent terminology. A text can be classified in two ways: binary (where the model predicts whether it is offensive or not) or multi-class (where the model assigns the text to one of three offensiveness categories, such as mild, moderate, or severe). To ensure a courteous and safe online community and stop hate speech and cyberbullying, it is crucial to develop reliable and accurate offensive speech classification models.
+2. How to do offensive speech classification 
+There are various processes involved in classifying offensive speech, including data preparation, feature extraction, model training, and evaluation. The typical processes in classifying offensive speech are summarized as follows:
+1.	Data Preparation : Compile and prepare a dataset of text or audio samples that use vulgar or derogatory language. The appropriate offensiveness categories or levels should be assigned to the dataset. The target population and the environment in which the model will be used should both be included in the dataset.
+2.	Extraction of Features : The process of turning text samples into numerical features that may be fed into a machine learning model. There are several techniques for feature extraction, including character n-grams, word embeddings, and bag-of-words.
+3.	Model training : Apply the feature vectors and accompanying labels to a machine learning model. Many methods, including any algorithm that works as machine learning.
+4.	Model Evaluation : Use common measures like accuracy, precision, recall, and F1-score to assess the trained model's performance. To gauge how well the model generalizes to new data, use cross-validation or holdout validation.
+5.	Model refinement : Experiment with various feature extraction strategies, algorithms, and hyperparameters to improve the model. Find the ideal set of parameters that maximizes the model's performance by using methods like grid search or random search.
+6.	Model Deployment : Install the completed model in the desired environment, then track its performance over time. Make sure the model is reliable and does not show prejudice or unfairness towards particular groups of people.
+offensive speech classification uses a combination of MLA and NLP approaches to identify and categorize offensive or abusive words. In order to create a strong and nearly perfect model that can handle diverse forms of foul language in varied settings, attention must be paid carefully to the data preparation, feature extraction, model training, and evaluation processes.
+
+3. TASK 1: Model Selection 
+It is crucial to take into account a number of aspects, including accuracy, speed, interpretability, and the availability of training data, when choosing the appropriate model for classifying abusive speech. The following techniques could be used for this task:
+1.	Naïve Bayes - Text classification jobs frequently employ the Naive Bayes method, which is a straightforward but efficient classification scheme. It is renowned for its quickness and capacity for high-dimensional data handling. Although naive Bayes works well in reality, it makes the assumption that characteristics are independent, which is frequently false for problems involving natural language processing.
+
+2.	Support Vector Machine - The sophisticated ML algorithm known as (SVM) is frequently employed for text classification jobs. SVM is renowned for its aptitude with complicated data and for offering decent accuracy in classification jobs.
+
+3.	Convolution Neural Networks - Convolutional Neural Networks (CNN) are a type of deep learning algorithm that are frequently used for classifying images, but they may also be used to classify texts. In many natural language processing tasks, CNN has been demonstrated to produce state-of-the-art outcomes by automatically learning features from the input data.
+
+4.	Recurrent Neural Network - Another deep learning approach that is frequently employed for text categorization problems is recurrent neural networks (RNN). RNNs are renowned for their capacity to deal with sequential data and can discern the relationship between words in a phrase.
+
+5.	Transformers: A neural network architecture that is made to handle sequential input is known as a transformer. They are frequently employed in applications like sentiment analysis and language translation since they have been demonstrated to produce state-of-the-art outcomes in many natural language processing tasks.
+
+Based on the above-mentioned techniques, the following two techniques can be further researched and refined:
+1.	Support vector machines (SVM) - SVM has been demonstrated to be effective in text classification applications, including the classification of objectionable speech. It can give good accuracy and handle high-dimensional data. SVM is a good option for problems with little training data since it can be taught well with a minimal amount of data.
+
+2.	Naive Bayes - The Naive Bayes approach, a simple yet effective classification system, is commonly used in text classification tasks. It is recognised for its speed and ability to handle high-dimensional data. Despite the fact that naive Bayes is effective in practise, it is typically incorrect for problems involving natural language processing since it assumes that attributes are independent.
+
+
+
+4. TASK 2 and TASK 3: Devising and training your own classifier and Data Size Effect
+The chances that a data point belongs to a class is determined by the probabilities of each of its constituent attributes using the probabilistic algorithm Naive Bayes, which is used for text classification. It makes computing probabilities easier by assuming that the speciality are conditionally independent given the class label. In order to determine the posterior probability of each class label for a new data point, the algorithm uses Bayes' theorem to estimate the probabilities of the features and class labels from the training data. The data point is subsequently given the class label with the highest posterior probability. The data point is subsequently given the class label with the highest posterior probability. Although Naive Bayes is a straightforward but efficient technique for classifying text, it may perform poorly if the conditional independence assumption is broken or if there is a high degree of correlation between the characteristics. 
+To begin training your own classifier, prepare your own dataset by cleaning the information and turning it into a matrix of word frequencies. After dividing the dataset into training and testing sets, you can train your classifier on the training data and assess its performance using the same metrics on the testing data. To do this, you can employ the same libraries and tools that were utilised in the code.
+The text and label data are entered into the train and evaluate model() method along with the chosen data size to be used for training, validation, and testing. The training data is first subset according to the desired size, and the text data is then vectorized using the CountVectorizer. Using a subset of the training data, a Multinomial Naive Bayes classifier is trained, and predictions are made using the test and validation data. Accuracy, precision, recall, and F1-score performance measures are calculated and reported.
+The train and evaluate model() function is then invoked iteratively for each size of data, noting the performance metrics for both the validation and test data. The plotly library is then used to plot the outcomes.
+You would need to collect or construct a labelled dataset adequate for the task you want to complete in order to design and train your own classifier. The text would next need to be transformed into numerical characteristics that could be used as input to a ML model after being subjected to pre-processing (such as deleting stop words, stemming or lemmatizing words, etc.).
+You would need to divide your data into training, validation, and test sets after pre-processing. The validation set is used to fine-tune hyperparameters and analyse model performance during development, while the test set is used to check the finished model's performance on unlabeled data. The training set is used to train the classifier.
+The last step would be to select a machine learning algorithm suitable for your purpose and dataset, like Naïve-Bayes, SVMs, or Neural Networks (NNs). The model would then be trained using training data, hyperparameters would be adjusted using validation data, and the final model would be evaluated using test data.
+Finally, you would use relevant performance matrix, like accuracy, precision, recall, and F1-score, to check the model's performance. You might need to collect more data, make preprocessing improvements, or try an alternative machine learning technique if the performance is subpar.
+
+5. Code
+TASK : Devising and training your own classifier
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OUTPUT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TASK : Data Size Effect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OUTPUT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. Conclusion
+The plot displays how a Naive Bayes classifier trained to categorise tweets as offensive or not offensive performs in relation to data size. The validation and testing accuracy of the classifier both increase with data amount. This implies that having more data can enhance the model's ability to generalise, hence it's critical to gather enough data while training machine learning models.
+The plot also demonstrates that the testing accuracy is marginally less accurate than the validation accuracy, which may be the result of overfitting on the training data. It could be worthwhile to look at regularisation methods or utilising a more complex model as approaches to lessen overfitting.
+Overall, the findings highlight the significance of data size in developing efficient machine learning models and offer a starting point for additional experimentation and optimisation.
+
+
+
+
+
+
+7. Refrence
+1.	Scikit-learn documentation: https://scikit-learn.org/stable/documentation.html 
+2.	Pandas documentation: https://pandas.pydata.org/docs/ 
+3.	Plotly documentation: https://plotly.com/python/
+4.	Machine Learning Mastery: https://machinelearningmastery.com/ 
+5.	Towards Data Science: https://towardsdatascience.com/ 
+6.	Google AI Education: https://ai.google/education/ 
+7.	Coursera: https://www.coursera.org/ 
+8.	Stanford University Machine Learning Course: https://www.coursera.org/learn/machine-learning 
+9.	MIT OpenCourseWare: https://ocw.mit.edu/index.htm 
+10.	Deep Learning Book by Ian Goodfellow, Yoshua Bengio, and Aaron Courville: https://www.deeplearningbook.org/ 
+
